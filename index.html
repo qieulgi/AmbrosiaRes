@@ -18,6 +18,8 @@
             background-attachment: fixed;
             color: white; /* Default text color */
             position: relative;
+            overflow-x: hidden; /* Prevents horizontal scroll */
+            overflow-y: auto; /* Allows vertical scroll */
         }
 
         /* Dark overlay for better contrast */
@@ -36,20 +38,24 @@
         .container, .reservation-container, .info-container {
             background: rgba(0, 0, 0, 0.75); /* Semi-transparent black */
             color: white;
-            width: 90%;
-            max-width: 600px;
+            width: 95%; /* Slightly reduce width */
+            max-width: 500px; /* Ensure it fits within smaller screens */
             padding: 20px;
             border-radius: 8px;
             margin: 20px auto;
             text-align: center;
+            word-wrap: break-word; /* Prevents text overflow */
+            overflow-wrap: break-word;
         }
 
         .navbar {
             display: flex;
             justify-content: center;
+            flex-wrap: wrap; /* Allows navigation links to wrap if needed */
             background: rgba(0, 0, 0, 0.75); /* Semi-transparent black */
             padding: 10px 0;
             font-family: 'Fleur De Leah', cursive;
+            text-align: center;
         }
 
         .navbar a {
@@ -75,6 +81,8 @@
             font-size: 16px;
             line-height: 1.5;
             text-align: left;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         h1, h2, .menu-item-name {
@@ -141,7 +149,7 @@
           Thank you for your reservation. Should your plans change, please let us know at least 24 hours in advance of your reservation time as late cancels and no-shows are subject to a $25 per person cancellation fee. We look forward to serving you!</p>
         <p><strong>Important Dining Information:</strong><br>
         We have a 15-minute grace period. Please call us if you are running later than 15 minutes after your reservation time.</p>
-        <p>Your table will be reserved based on party size.</p>.</p>
+        <p>Your table will be reserved based on party size.</p>.
         <a href="#" class="book-button">Book Reservation</a>
     </div>
 
@@ -155,12 +163,13 @@
         <div class="info-section" id="locations">
             <h2>Locations</h2>
             <p><strong>Florida</strong><br>133 S County Rd, Palm Beach, FL 33480</p>
-            <p><strong>New York</strong><br>500 Greenwich St, New York, NY 10013</p>
             <p><strong>Massachusetts</strong><br>820 Salem St, Boston, MA 02113</p>
-             <p><strong>Georgia</strong><br>203 Marietta St NW, Atlanta, GA 30303</p>
+            <p><strong>New York</strong><br>500 Greenwich St, New York, NY 10013</p>
+            <p><strong>Georgia</strong><br>203 Marietta St NW, Atlanta, GA 30303</p>
         </div>
     </div>
 
    <p>© 2025, Meyli Roque Martinez. This is a fictitious web page created solely for the purpose of education and training. All products and people associated with this web page are also fictitious. Any resemblance to real brands, products, or people is purely coincidental. Information provided about the product is also fictitious and should not be construed to be representative of actual products on the market in a similar product category.</p>
 </body>
 </html>
+

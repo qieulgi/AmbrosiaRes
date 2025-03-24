@@ -12,21 +12,33 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-image: url('takahiro-taguchi-8l_RuuZrOyY-unsplash.jpg'); /* Background Image */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             color: white; /* Default text color */
+            position: relative;
         }
 
-        /* All containers should have a black background and white text */
-        .container, .reservation-container, .info-container, .menu-item-name, .menu-item-description, .book-button {
-            background-color: #000000; /* Black background */
-            color: white; /* White text */
+        /* Dark overlay for better contrast */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6); /* Dark overlay */
+            z-index: -1;
         }
 
-        .container {
+        /* All containers should have a semi-transparent background */
+        .container, .reservation-container, .info-container {
+            background: rgba(0, 0, 0, 0.75); /* Semi-transparent black */
+            color: white;
             width: 90%;
             max-width: 600px;
             padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
             margin: 20px auto;
             text-align: center;
@@ -35,90 +47,21 @@
         .navbar {
             display: flex;
             justify-content: center;
-            background: #ffffff; /* White background */
+            background: rgba(0, 0, 0, 0.75); /* Semi-transparent black */
             padding: 10px 0;
-            font-family: 'Fleur De Leah', cursive; /* Same font as title Ambrosia */
+            font-family: 'Fleur De Leah', cursive;
         }
 
         .navbar a {
-            color: black; /* Black text */
+            color: white;
             text-decoration: none;
             padding: 10px 20px;
             font-size: 16px;
-            background: none;
             border-radius: 5px;
         }
 
         .navbar a:hover {
-            background-color: rgba(0, 0, 0, 0.1); /* Light grey hover effect */
-            color: black; /* Maintain black text */
-            border-radius: 5px;
-        }
-
-        .reservation-container {
-            width: 90%;
-            max-width: 600px;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            margin: 20px auto;
-            text-align: left;
-        }
-
-        .info-container {
-            display: flex;
-            justify-content: space-between;
-            width: 90%;
-            max-width: 600px;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            margin: 20px auto;
-            text-align: left;
-        }
-
-        .info-section {
-            width: 45%;
-        }
-
-        .book-button {
-            display: inline-block;
-            padding: 10px 20px;
-            background: #ffffff; /* White background */
-            color: black; /* Black text */
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 16px;
-            text-align: center;
-            margin: 20px 0;
-            border: 2px solid black; /* Border to give a clean look */
-        }
-
-        .book-button:hover {
-            background: rgba(0, 0, 0, 0.1); /* Light grey hover effect */
-            color: black; /* Maintain black text */
-            border-radius: 5px;
-        }
-
-        .combined-section {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-            width: 90%;
-            max-width: 600px;
-            margin: 20px auto;
-        }
-
-        .tagline {
-            font-family: 'Tinos', serif;
-            font-size: 14px;
-            color: #555;
-            margin-top: 5px;
-        }
-
-        .menu-item {
-            margin-bottom: 25px;
+            background-color: rgba(255, 255, 255, 0.2);
         }
 
         .menu-item-name {
@@ -129,26 +72,29 @@
         }
 
         .menu-item-description {
-            margin-top: 5px;
             font-size: 16px;
-            color: white; /* White text */
+            line-height: 1.5;
             text-align: left;
-            font-family: 'Tinos', serif;
         }
 
-        h1, h2 {
-            font-family: 'Fleur De Leah', cursive;
+        h1, h2, .menu-item-name {
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
         }
 
-        .navbar, .book-button, .menu-item-name, .menu-item-description {
-            font-family: 'Tinos', serif;
+        .book-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background: white;
+            color: black;
+            font-weight: bold;
+            border-radius: 5px;
+            border: 2px solid white;
+            text-decoration: none;
         }
 
-        .container h1 {
-            font-size: 32px;
-            margin: 0;
+        .book-button:hover {
+            background: rgba(255, 255, 255, 0.8);
         }
-
     </style>
 </head>
 <body>
@@ -158,43 +104,47 @@
         <a href="#locations">Locations</a>
         <a href="#hours">Hours</a>
     </div>
+
     <div class="container">
         <h1>Ambrosia</h1>
         <p class="tagline">Where one can dine like a God</p>
     </div>
+
     <div class="container" id="menu">
         <h2>Menu</h2>
-        
+
         <div class="menu-item">
             <p class="menu-item-name">Appetizers</p>
-            <p class="menu-item-description"><strong>Briam</strong> – A medley of thinly sliced vegetables, delicately seasoned with oregano, rosemary, parsley, and fresh garlic, then drizzled with extra virgin olive oil.</p>
+             <p class="menu-item-description"><strong>Briam</strong> – A medley of thinly sliced vegetables, delicately seasoned with oregano, rosemary, parsley, and fresh garlic, then drizzled with extra virgin olive oil.</p>
             <p class="menu-item-description"><strong>Soutzoukakia</strong> – Savory ground beef blended with onion, garlic, fresh herbs, and aromatic cumin, slowly simmered in a rich tomato sauce.</p>
             <p class="menu-item-description"><strong>Bouyiourdi</strong> – Oven-baked feta cheese with ripe tomatoes, garlic, and chili, finished with extra virgin olive oil and served with warm pita bread.</p>
         </div>
 
         <div class="menu-item">
             <p class="menu-item-name">Entrées</p>
-            <p class="menu-item-description"><strong>Branzino</strong> – Whole Greek sea bass, expertly prepared and infused with fresh lemon wedges, oregano, and rosemary, drizzled with olive oil for a delicate, flavorful finish.</p>
+          <p class="menu-item-description"><strong>Branzino</strong> – Whole Greek sea bass, expertly prepared and infused with fresh lemon wedges, oregano, and rosemary, drizzled with olive oil for a delicate, flavorful finish.</p>
             <p class="menu-item-description"><strong>Moussaka</strong> – A traditional Greek dish featuring layers of roasted eggplant and a rich, spiced lamb sauce, topped with a velvety béchamel.</p>
             <p class="menu-item-description"><strong>Lahanorizio</strong> – A comforting braise of sautéed cabbage, fresh vegetables, and creamy rice, brought to perfection with a splash of lemon juice, a hint of parsley, and crumbles of feta cheese.</p>
         </div>
-        
+
         <div class="menu-item">
             <p class="menu-item-name">Desserts</p>
-            <p class="menu-item-description"><strong>Baklava Ice Cream Sundae</strong> – Layers of crispy, golden phyllo pastry combined with rich vanilla ice cream, topped with cinnamon-dusted pistachios and walnuts, then finished with a warm drizzle of honey.</p>
+          <p class="menu-item-description"><strong>Baklava Ice Cream Sundae</strong> – Layers of crispy, golden phyllo pastry combined with rich vanilla ice cream, topped with cinnamon-dusted pistachios and walnuts, then finished with a warm drizzle of honey.</p>
             <p class="menu-item-description"><strong>Loukoumades</strong> – Traditional Greek honey puffs, lightly fried to golden perfection, dusted with crushed nuts, and served with a side of fragrant honey.</p>
             <p class="menu-item-description"><strong>Portokalopita</strong> – A luscious, butter-free orange custard cake crafted with phyllo dough and bathed in a fragrant honey-orange syrup.</p>
         </div>
     </div>
+
     <div class="reservation-container" id="reservations">
         <h2>Reservations</h2>
         <p><strong>Restaurant’s Terms and Conditions:</strong><br>
-        Thank you for your reservation. Should your plans change, please let us know at least 24 hours in advance of your reservation time as late cancels and no-shows are subject to a $25 per person cancellation fee. We look forward to serving you!</p>
+          Thank you for your reservation. Should your plans change, please let us know at least 24 hours in advance of your reservation time as late cancels and no-shows are subject to a $25 per person cancellation fee. We look forward to serving you!</p>
         <p><strong>Important Dining Information:</strong><br>
         We have a 15-minute grace period. Please call us if you are running later than 15 minutes after your reservation time.</p>
-        <p>Your table will be reserved based on party size.</p>
+        <p>Your table will be reserved based on party size.</p>.</p>
         <a href="#" class="book-button">Book Reservation</a>
     </div>
+
     <div class="info-container">
         <div class="info-section" id="hours">
             <h2>Hours</h2>
@@ -205,11 +155,12 @@
         <div class="info-section" id="locations">
             <h2>Locations</h2>
             <p><strong>Florida</strong><br>133 S County Rd, Palm Beach, FL 33480</p>
-            <p><strong>Massachusetts</strong><br>820 Salem St, Boston, MA 02113</p>
             <p><strong>New York</strong><br>500 Greenwich St, New York, NY 10013</p>
-            <p><strong>Georgia</strong><br>203 Marietta St NW, Atlanta, GA 30303</p>
+            <p><strong>Massachusetts</strong><br>820 Salem St, Boston, MA 02113</p>
+             <p><strong>Georgia</strong><br>203 Marietta St NW, Atlanta, GA 30303</p>
         </div>
     </div>
-    <p>© 2025, Meyli Roque Martinez. This is a fictitious web page created solely for the purpose of education and training. All products and people associated with this web page are also fictitious. Any resemblance to real brands, products, or people is purely coincidental. Information provided about the product is also fictitious and should not be construed to be representative of actual products on the market in a similar product category.</p>
+
+   <p>© 2025, Meyli Roque Martinez. This is a fictitious web page created solely for the purpose of education and training. All products and people associated with this web page are also fictitious. Any resemblance to real brands, products, or people is purely coincidental. Information provided about the product is also fictitious and should not be construed to be representative of actual products on the market in a similar product category.</p>
 </body>
 </html>
